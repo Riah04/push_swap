@@ -1,4 +1,3 @@
-
 #include "push_swap.h"
 
 t_list	*ft_lstnew(int val)
@@ -43,4 +42,14 @@ void	stack_add_back(t_stack *stack, t_list *node)
 		stack->bottom = node;
 	}
 	stack->size++;
+}
+
+void	free_split(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }

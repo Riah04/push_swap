@@ -2,23 +2,19 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2026/03/25 11:36:28 by andriraz          #+#    #+#             */
-/*   Updated: 2026/03/25 11:36:28 by andriraz         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/29 06:20:07 by andriraz          #+#    #+#             */
+/*   Updated: 2026/03/29 08:41:45 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 int	is_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[0] == '-' || str[0] == '+')
@@ -67,16 +63,25 @@ int	parse_args(int argc, char **argv, t_stack *a)
 {
 	char	**args;
 	int		i;
+	int		j;
 
-	if (argc == 2)
-		args = ft_split(argv[1], ' ');
-	else
-		args = argv + 1;
-	i = 0;
-	while (args[i])
+	i = 1;
+	while (i < argc)
 	{
-		if (!check_arg(args[i], a))
+		args = ft_split(argv[i], ' ');
+		if (!args)
 			return (0);
+		j = 0;
+		while (args[j])
+		{
+			if (!check_arg(args[j], a))
+			{
+				free_split(args);
+				return (0);
+			}
+			j++;
+		}
+		free_split(args);
 		i++;
 	}
 	return (1);

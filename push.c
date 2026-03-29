@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
+/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:18 by andriraz          #+#    #+#             */
-/*   Updated: 2026/03/28 14:54:02 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/03/28 16:44:25 by andriraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

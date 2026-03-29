@@ -1,4 +1,3 @@
-
 #include "push_swap.h"
 
 static void	assign_ranks(t_stack *s)
@@ -33,15 +32,21 @@ static int	get_chunk_size(t_stack *a)
 
 void	push_chunk(t_stack *a, t_stack *b, int chunk_min, int chunk_max)
 {
-	int	size;
 	int	i;
+	int	init;
+	int	mid;
 
-	size = a->size;
 	i = 0;
-	while (i < size && a->size > 0)
+	init = a->size;
+	mid = (chunk_max + chunk_min) / 2;
+	while (i < init)
 	{
 		if (a->top->value >= chunk_min && a->top->value < chunk_max)
+		{
 			pb(a, b);
+			if (b->top->value < mid)
+				rb(b);
+		}
 		else
 			ra(a);
 		i++;
@@ -50,30 +55,35 @@ void	push_chunk(t_stack *a, t_stack *b, int chunk_min, int chunk_max)
 
 void	back_to_a(t_stack *s1, t_stack *s2)
 {
-	t_list	*tmp;
-	int		max;
+	int	max;
+	int	pos;
+	int	i;
 
 	while (s2->size > 0)
 	{
-		tmp = s2->top;
-		max = tmp->value;
-		while (tmp)
-		{
-			if (tmp->value > max)
-				max = tmp->value;
-			tmp = tmp->next;
-		}
+		max = get_max(s2);
+		pos = get_max_pos(s2);
 		if (s2->top->value == max)
 			pa(s1, s2);
+		else if (pos < s2->size / 2)
+		{
+			i = 0;
+			while (i++ < pos)
+				rb(s2);
+		}
 		else
-			rb(s2);
+		{
+			i = 0;
+			while (i++ < (s2->size - pos))
+				rrb(s2);
+		}
 	}
 }
 
 void	medium_sort(t_stack *a, t_stack *b)
 {
-	int		min;
-	int		size;
+	int	min;
+	int	size;
 
 	assign_ranks(a);
 	size = get_chunk_size(a);

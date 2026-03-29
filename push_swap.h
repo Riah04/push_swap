@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:05 by andriraz          #+#    #+#             */
-/*   Updated: 2026/03/25 11:37:07 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/03/29 14:35:47 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct t_stack
 	t_list			*top;
 	t_list			*bottom;
 }					t_stack;
+
 long				ft_atol(const char *nptr);
 t_stack				*init_stack(void);
 t_list				*ft_lstnew(int val);
@@ -47,9 +48,13 @@ void				pb(t_stack *a, t_stack *b);
 void				rra(t_stack *a);
 void				rrb(t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
-double				compte_disorder(t_stack *a);
+double				count_disorder(t_stack *a);
 void				simple_sort(t_stack *a, t_stack *b);
-int ft_sqrt(int nb);
-void	medium_sort(t_stack *a, t_stack *b);
+int					ft_sqrt(int nb);
+void				medium_sort(t_stack *a, t_stack *b);
+int					get_max_pos(t_stack *s);
+int					get_max(t_stack *s);
+void				free_split(char **arr);
+void				ft_radix(t_stack *a, t_stack *b);
 
 #endif

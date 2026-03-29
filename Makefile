@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+         #
+#    By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 11:36:19 by andriraz          #+#    #+#              #
-#    Updated: 2026/03/25 11:36:21 by andriraz         ###   ########.fr        #
+#    Updated: 2026/03/29 14:29:54 by nmariah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME  = push_swap.a
 
 HEADER = push_swap.h
 
-SRCS =	ft_atol.c push_swap_utils.c ft_split.c parse.c push.c rotate.c swap.c reverse_rotate.c algo_simple.c compte_disorder.c ft_sqrt.c algo_medium.c
+SRCS =	ft_atol.c push_swap_utils.c ft_split.c parse.c push.c rotate.c swap.c reverse_rotate.c algo_simple.c compte_disorder.c ft_sqrt.c algo_medium.c get_max.c algo_complexe.c
 
 CC = cc
 

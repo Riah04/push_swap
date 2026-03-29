@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:29 by andriraz          #+#    #+#             */
-/*   Updated: 2026/03/25 11:37:30 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/03/29 08:47:38 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

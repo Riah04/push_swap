@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compte_disorder.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:31:36 by andriraz          #+#    #+#             */
-/*   Updated: 2026/03/25 11:31:42 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/03/29 14:35:37 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static double	count_mistake(int *arr, int size)
 	return (mistake / total_pairs);
 }
 
-double	compte_disorder(t_stack *a)
+double	count_disorder(t_stack *a)
 {
 	int		*arr;
 	double	result;

@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/29 06:21:15 by andriraz          #+#    #+#             */
+/*   Updated: 2026/03/29 14:30:47 by nmariah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
-// CETTE FONCTION N'EST QUE POUR LE TEST
+
+// CETTE FONCTION N'EST LA QUE POUR LE TEST
 void	print_stacks(t_stack *a, t_stack *b)
 {
 	t_list	*tmp;
@@ -17,8 +30,6 @@ void	print_stacks(t_stack *a, t_stack *b)
 	tmp = b->top;
 	while (tmp)
 	{
-		//write(1, tmp->value, 1);
-		// POUR QUE CA FONCTION IL FAUT QUE LE tmp SOIT CONVERTIE PAR ft_itoa
 		printf("%d", tmp->value);
 		tmp = tmp->next;
 	}
@@ -29,8 +40,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_list	*tmp;
-	t_list	*tmp1;
 
 	if (argc < 2)
 		return (1);
@@ -43,7 +52,7 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	medium_sort(a, b);
+	ft_radix(a, b);
 	print_stacks(a, b);
 	return (0);
 }
