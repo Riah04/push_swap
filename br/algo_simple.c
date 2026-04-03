@@ -55,7 +55,7 @@ void	simple_sort(t_stack *a, t_stack *b)
 	int	pos;
 	int	i;
 
-	while (compte_disorder(a) > 0.0)
+	while (count_disorder(a) > 0.0)
 	{
 		pos = get_min_pos(a);
 		if (pos < a->size / 2)

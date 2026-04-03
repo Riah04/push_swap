@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 06:20:07 by andriraz          #+#    #+#             */
-/*   Updated: 2026/03/29 08:41:45 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/02 22:15:35 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,37 @@ int	check_arg(char *str, t_stack *a)
 	return (1);
 }
 
-int	parse_args(int argc, char **argv, t_stack *a)
+static int	parsing_arg(char *arg, t_stack *a)
 {
 	char	**args;
 	int		i;
-	int		j;
+
+	args = ft_split(arg, ' ');
+	if (!args)
+		return (0);
+	i = 0;
+	while (args[i])
+	{
+		if (!check_arg(args[i], a))
+		{
+			free_split(args);
+			return (0);
+		}
+		i++;
+	}
+	free_split(args);
+	return (1);
+}
+
+int	parse_args(int argc, char **argv, t_stack *a)
+{
+	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
-		args = ft_split(argv[i], ' ');
-		if (!args)
+		if (!is_flag(argv[i]) && !parsing_arg(argv[i], a))
 			return (0);
-		j = 0;
-		while (args[j])
-		{
-			if (!check_arg(args[j], a))
-			{
-				free_split(args);
-				return (0);
-			}
-			j++;
-		}
-		free_split(args);
 		i++;
 	}
 	return (1);
