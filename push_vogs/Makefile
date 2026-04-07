@@ -14,7 +14,23 @@ NAME  = push_swap
 
 HEADER = push_swap.h
 
-SRCS =	ft_atol.c push_swap_utils.c ft_split.c parse.c push.c rotate.c swap.c reverse_rotate.c algo_simple.c count_disorder.c algo_medium.c get_max.c algo_complex.c main.c check_flag.c push_swap_util_02.c bench.c check_flag.c
+SRCS =	ft_atol.c \
+	push_swap_utils.c \
+	ft_split.c parse.c \
+	push.c \
+	rotate.c \
+	swap.c \
+	reverse_rotate.c \
+	algo_simple.c \
+	count_disorder.c \
+	algo_medium.c \
+	get_max.c \
+	algo_complex.c \
+	main.c \
+	check_flag.c \
+	push_swap_util_02.c \
+	bench.c \
+	check_flag.c
 
 CC = cc
 
