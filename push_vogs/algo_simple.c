@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:31:31 by andriraz          #+#    #+#             */
-/*   Updated: 2026/03/25 11:31:54 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/04/07 17:10:36 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,29 @@ static int	get_min_pos(t_stack *s)
 	return (position);
 }
 
-void	simple_sort(t_stack *a, t_stack *b)
+void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	pos;
 	int	i;
 
-	while (count_disorder(a) > 0.0)
+	ft_init_bench(bench);
+	while (count_disorder(a, bench) > 0.0)
 	{
 		pos = get_min_pos(a);
 		if (pos < a->size / 2)
 		{
 			i = 0;
 			while (i++ < pos)
-				ra(a);
+				ra(a, bench);
 		}
 		else
 		{
 			i = 0;
 			while (i++ < (a->size - pos))
-				rra(a);
+				rra(a, bench);
 		}
-		pb(a, b);
+		pb(a, b, bench);
 	}
 	while (b->size > 0)
-		pa(a, b);
+		pa(a, b, bench);
 }

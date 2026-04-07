@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:32:22 by andriraz          #+#    #+#             */
-/*   Updated: 2026/03/25 11:33:21 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/04/07 13:33:09 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,13 @@ static unsigned int	len_word(const char *str, int i, char c)
 
 static void	free_tab(char **tab, int k)
 {
-	while (k >= 0)
+	int	j;
+
+	j = 0;
+	while (k > j)
 	{
-		free(tab[k]);
-		k--;
+		free(tab[j]);
+		j++;
 	}
 	free(tab);
 }

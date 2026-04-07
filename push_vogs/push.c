@@ -6,13 +6,13 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:18 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/06 11:12:11 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/07 16:51:23 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack *a, t_stack *b, t_bench bench)
+void	pa(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_list	*node;
 
@@ -34,10 +34,10 @@ void	pa(t_stack *a, t_stack *b, t_bench bench)
 	a->top = node;
 	a->size++;
 	write(1, "pa\n", 3);
-	bench.pa++;
+	bench->pa++;
 }
 
-void	pb(t_stack *a, t_stack *b, t_bench bench)
+void	pb(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_list	*node;
 
@@ -59,5 +59,5 @@ void	pb(t_stack *a, t_stack *b, t_bench bench)
 	b->top = node;
 	b->size++;
 	write(1, "pb\n", 3);
-	bench.pb++;
+	bench->pb++;
 }

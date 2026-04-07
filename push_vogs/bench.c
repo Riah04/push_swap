@@ -6,13 +6,13 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 14:54:36 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/06 16:27:05 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/07 17:16:16 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_strcmp(char *s, char *s1)
+int	ft_strcmp(char *s, char *s1)
 {
 	int	i;
 
@@ -51,12 +51,10 @@ void	ft_init_bench(t_bench *bench)
 void	ft_bench(char **argv, int argc, t_bench *bench)
 {
 	int		i;
-	int		d;
-	char	*str;
 
 	i = 0;
 	ft_init_bench(bench);
-	if (ft_("--bench", argv[i]) == 0)
+	if (has_flag(argv, argc, "--bench") == 1)
 	{
 		ft_printf("[bench] disorder: %f\n", bench->disorder);
 		ft_printf("[bench] strategy: %s\n", bench->strategy);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 06:21:15 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/02 23:57:03 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/04/07 16:59:53 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ t_flags	get_flags(int argc, char **argv)
 {
 	t_flags	f;
 
-	f.bench = has_flag(argc, argv, "--bench");
-	f.adaptive = has_flag(argc, argv, "--adaptive");
-	f.simple = has_flag(argc, argv, "--simple");
-	f.medium = has_flag(argc, argv, "--medium");
-	f.complexe = has_flag(argc, argv, "--complexe");
+	f.bench = has_flag(argv, argc, "--bench");
+	f.adaptive = has_flag(argv, argc, "--adaptive");
+	f.simple = has_flag(argv, argc, "--simple");
+	f.medium = has_flag(argv, argc, "--medium");
+	f.complexe = has_flag(argv, argc, "--complexe");
 	return (f);
 }
 
@@ -53,6 +53,7 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	t_flags	flags;
+	t_bench *bench = NULL;
 
 	flags = get_flags(argc, argv);
 	if (argc < 2)
@@ -68,12 +69,13 @@ int	main(int argc, char **argv)
 	}
 	// if (flags.bench)
 	// 	ft_bench(argv, argc);
+	ft_init_bench(bench);
 	if (flags.simple)
-		simple_sort(a, b);
+		simple_sort(a, b, bench);
 	if (flags.medium)
-		medium_sort(a, b);
+		medium_sort(a, b, bench);
 	if (flags.complexe)
-		ft_radix(a, b);
+		ft_radix(a, b, bench);
 	if (flags.adaptive)
 		return (0);
 }

@@ -6,10 +6,9 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:05:45 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/06 11:06:20 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/07 16:52:59 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -58,7 +57,7 @@ static double	count_mistake(int *arr, int size)
 	return (mistake / total_pairs);
 }
 
-double	count_disorder(t_stack *a, t_bench bench)
+double	count_disorder(t_stack *a, t_bench *bench)
 {
 	int		*arr;
 	double	result;
@@ -70,5 +69,6 @@ double	count_disorder(t_stack *a, t_bench bench)
 		return (0.0);
 	result = count_mistake(arr, a->size);
 	free(arr);
+	bench->disorder = result;
 	return (result);
 }

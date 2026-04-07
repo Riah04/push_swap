@@ -6,11 +6,29 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 12:56:16 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/06 16:39:36 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/07 14:18:10 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	ft_take_max(t_stack *a)
+{
+	t_list	*tmp;
+	int		max;
+
+	if (!a || !a->top)
+		return (0);
+	tmp = a->top;
+	max = tmp->value;
+	while (tmp)
+	{
+		if (tmp->value > max)
+			max = tmp->value;
+		tmp = tmp->next;
+	}
+	return (max);
+}
 
 static void	assign_ranks(t_stack *s)
 {
@@ -37,12 +55,12 @@ static void	assign_ranks(t_stack *s)
 	}
 }
 
-void	ft_three(t_stack *a, t_stack *b)
+void	ft_three(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_list	*tmp;
-	t_bench	*bench;
 
 	assign_ranks(a);
+	ft_init_bench(bench);
 	tmp = a->top;
 	if (tmp->index == a->size)
 	{
@@ -52,5 +70,24 @@ void	ft_three(t_stack *a, t_stack *b)
 	{
 		sa(a, bench);
 		ra(a, bench);
+	}
+}
+
+void	ft_five(t_stack *a, t_stack *b, t_bench *bench)
+{
+	t_list	*tmp;
+	int		k;
+
+	assign_ranks(a);
+	tmp = a->top;
+	while (tmp->index != k)
+	{
+		k = ft_take_max(a);
+		if (tmp->index == k)
+			pb(a, b, bench);
+		if (a->size == 3)
+			ft_three(a, b, bench);
+		ra(a, bench);
+		tmp = tmp->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 08:38:28 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/06 16:29:00 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/07 16:55:17 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	assign_ranks(t_stack *s)
 	{
 		ranks = 0;
 		tmp1 = s->top;
+		og_value = tmp->value;
 		while (tmp1)
 		{
 			if (tmp1->value < tmp->value)
@@ -73,8 +74,10 @@ static void	ft_push_all_to_a(t_stack *a, t_stack *b)
 {
 	int	size;
 	int	i;
-    t_bench *bench;
+	t_bench *bench;
 
+	bench = NULL;
+	ft_init_bench(bench);
 	if (!b || !b->size)
 		return ;
 	size = b->size;
@@ -96,6 +99,7 @@ void	ft_radix(t_stack *a, t_stack *b, t_bench *bench)
 	int		i;
 	t_list	*tmp;
 
+	ft_init_bench(bench);
 	assign_ranks(a);
 	max = ft_take_max(a);
 	count = ft_verif_bit(max);

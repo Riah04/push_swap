@@ -6,16 +6,17 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:05 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/06 16:28:19 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/07 17:15:00 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
+# include "printf/ft_printf.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include "printf.h"
 
 typedef struct s_list
 {
@@ -39,7 +40,7 @@ typedef struct s_flag
 	int				medium;
 	int				complexe;
 	int				adaptive;
-	int flag
+	int 			flag;
 }					t_flags;
 
 typedef struct t_bench
@@ -78,16 +79,21 @@ void				rra(t_stack *a, t_bench *bench);
 void				rrb(t_stack *b, t_bench *bench);
 void				rrr(t_stack *a, t_stack *b, t_bench *bench);
 double				count_disorder(t_stack *a, t_bench *bench);
-void				simple_sort(t_stack *a, t_stack *b);
+void				simple_sort(t_stack *a, t_stack *b, t_bench *bench);
 int					ft_sqrt(int nb);
-void				medium_sort(t_stack *a, t_stack *b);
+void				medium_sort(t_stack *a, t_stack *b, t_bench *bench);
 int					get_max_pos(t_stack *s);
 int					get_max(t_stack *s);
 void				free_split(char **arr);
-void				ft_radix(t_stack *a, t_stack *b);
+void				ft_radix(t_stack *a, t_stack *b, t_bench *bench);
 int					ft_strcmp(char *s1, char *s2);
 int					is_flag(char *str);
-int					has_flag(int argc, char **argv, char *flag);
-void				ft_bench(char *argv, int argc);
+int					has_flag(char **argv, int argc, char *flag);
+void				ft_bench(char **argv, int argc, t_bench *bench);
+
+void	ft_init_bench(t_bench *bench);
+int	ft_putnbr_u_fd(unsigned int i, int fd);
+int	ft_dig_count(unsigned int n);
+int	ft_putchar_fd(char c, int fd);
 
 #endif

@@ -6,27 +6,63 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 16:25:50 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/06 16:27:39 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/07 17:01:37 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	has_flag(int argc, char **argv, char *flag)
+static int	count_word(const char *str, char c)
 {
+	int	counter;
 	int	i;
 
-	i = 1;
-	while (i < argc)
+	counter = 0;
+	i = 0;
+	while (str[i])
 	{
-		if (ft_strcmp(argv[i], flag) == 0)
-			return (1);
+		if (str[i] != c && (i == 0 || str[i - 1] == c))
+			counter++;
 		i++;
 	}
-	return (0);
+	return (counter);
 }
 
-int	is_flag(char *str)
+static void	free_tab(char **tab, int k)
 {
-	return (str[0] == '-' && str[1] == '-');
+	int	j;
+
+	j = 0;
+	while (k > j)
+	{
+		free(tab[j]);
+		j++;
+	}
+	free(tab);
+}
+
+int	has_flag(char **argv, int argc, char *flag)
+{
+	int		count;
+	char	**split;
+	int		k;
+	int		j;
+
+	k = 0;
+	count = 0;
+	while (argc > k)
+	{
+		j = 0;
+		count = count_word(argv[k], ' ');
+		split = ft_split(argv[k], ' ');
+		while (j < count)
+		{
+			if (ft_strcmp(split[j], flag) == 0)
+				return (free_tab(split, count), 1);
+			j++;
+		}
+		free_tab(split, count);
+		k++;
+	}
+	return (0);
 }
