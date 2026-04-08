@@ -12,6 +12,7 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
 # include "printf/ft_printf.h"
 # include <limits.h>
 # include <stdlib.h>
@@ -93,7 +94,7 @@ void				ft_bench(char **argv, int argc, t_bench *bench);
 
 void	ft_init_bench(t_bench *bench);
 int	ft_putnbr_u_fd(unsigned int i, int fd);
-int	ft_dig_count(unsigned int n);
+int	ft_dig_count(int n);
 int	ft_putchar_fd(char c, int fd);
 
 #endif

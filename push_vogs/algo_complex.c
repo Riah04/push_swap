@@ -31,7 +31,6 @@ static void	assign_ranks(t_stack *s)
 	t_list	*tmp;
 	t_list	*tmp1;
 	int		ranks;
-	int		og_value;
 
 	if (!s || !s->top)
 		return ;
@@ -40,7 +39,6 @@ static void	assign_ranks(t_stack *s)
 	{
 		ranks = 0;
 		tmp1 = s->top;
-		og_value = tmp->value;
 		while (tmp1)
 		{
 			if (tmp1->value < tmp->value)
@@ -97,13 +95,11 @@ void	ft_radix(t_stack *a, t_stack *b, t_bench *bench)
 	int		max;
 	int		nb;
 	int		i;
-	t_list	*tmp;
 
 	ft_init_bench(bench);
 	assign_ranks(a);
 	max = ft_take_max(a);
 	count = ft_verif_bit(max);
-	tmp = a->top;
 	i = 0;
 	while (i < count)
 	{

@@ -33,9 +33,9 @@ void	ft_adaptive(t_stack *a, t_stack *b, char **argv, t_bench *bench, int argc)
 	else if (has_flag(argc, argv, "--adaptive"))
 	{
 		if (count_disorder(a, bench) < 0.2)
-			simple_sort(a, b);
+			simple_sort(a, b, bench);
 		else if (count_disorder(a, bench) >= 0.2 && count_disorder(a, bench) < 0.5)
-			medium_sort(a, b);
+			medium_sort(a, b, bench);
 		else if (count_disorder(a, bench) > 0.5)
 			ft_radix(a, b, bench);
 	}
