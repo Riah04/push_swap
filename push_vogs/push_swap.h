@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:05 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/07 17:15:00 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/08 16:06:54 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void				pb(t_stack *a, t_stack *b, t_bench *bench);
 void				rra(t_stack *a, t_bench *bench);
 void				rrb(t_stack *b, t_bench *bench);
 void				rrr(t_stack *a, t_stack *b, t_bench *bench);
-double				count_disorder(t_stack *a, t_bench *bench);
+double				count_disorder(t_stack *a);
 void				simple_sort(t_stack *a, t_stack *b, t_bench *bench);
 int					ft_sqrt(int nb);
 void				medium_sort(t_stack *a, t_stack *b, t_bench *bench);
@@ -90,11 +90,13 @@ void				ft_radix(t_stack *a, t_stack *b, t_bench *bench);
 int					ft_strcmp(char *s1, char *s2);
 int					is_flag(char *str);
 int					has_flag(char **argv, int argc, char *flag);
-void				ft_bench(char **argv, int argc, t_bench *bench);
+void				ft_bench(char **argv, int argc, t_bench *bench, int fd);
 
-void	ft_init_bench(t_bench *bench);
-int	ft_putnbr_u_fd(unsigned int i, int fd);
-int	ft_dig_count(int n);
-int	ft_putchar_fd(char c, int fd);
+void				ft_init_bench(t_bench *bench);
+int					ft_putnbr_u_fd(unsigned int i, int fd);
+int					ft_dig_count(unsigned int n);
+int					ft_putchar_fd(char c, int fd);
+void				ft_adaptive(t_stack *a, t_stack *b, char **argv, int argc, t_bench *bench);
+int					ft_2d(double d, int fd);
 
 #endif

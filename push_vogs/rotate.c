@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:40 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/06 14:45:21 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/08 14:55:15 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ra(t_stack *a, t_bench *bench)
 	rotate(a);
 	write(1, "ra\n", 3);
 	bench->ra++;
+	bench->total_ops++;
 }
 
 void	rb(t_stack *b, t_bench *bench)
@@ -41,6 +42,7 @@ void	rb(t_stack *b, t_bench *bench)
 	rotate(b);
 	write(1, "rb\n", 3);
 	bench->rb++;
+	bench->total_ops++;
 }
 
 void	rr(t_stack *a, t_stack *b, t_bench *bench)
@@ -49,4 +51,5 @@ void	rr(t_stack *a, t_stack *b, t_bench *bench)
 	rotate(b);
 	write(1, "rr\n", 3);
 	bench->rr++;
+	bench->total_ops++;
 }

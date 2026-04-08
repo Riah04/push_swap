@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 08:39:52 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/06 16:28:35 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/08 14:31:12 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ void	medium_sort(t_stack *a, t_stack *b, t_bench *bench)
 		min += size;
 	}
 	back_to_a(a, b, bench);
+	bench->strategy = "Medium / O(n√n)";
 }

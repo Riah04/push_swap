@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:18 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/07 16:51:23 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/08 14:55:39 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	pa(t_stack *a, t_stack *b, t_bench *bench)
 	a->size++;
 	write(1, "pa\n", 3);
 	bench->pa++;
+	bench->total_ops++;
 }
 
 void	pb(t_stack *a, t_stack *b, t_bench *bench)
@@ -60,4 +61,5 @@ void	pb(t_stack *a, t_stack *b, t_bench *bench)
 	b->size++;
 	write(1, "pb\n", 3);
 	bench->pb++;
+	bench->total_ops++;
 }

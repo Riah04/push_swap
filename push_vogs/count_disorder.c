@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:05:45 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/07 16:52:59 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/08 15:53:15 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static double	count_mistake(int *arr, int size)
 	int		i;
 	int		j;
 
+	if (size <= 1)
+		return (0);
 	mistake = 0;
 	total_pairs = 0;
 	i = 0;
@@ -57,7 +59,7 @@ static double	count_mistake(int *arr, int size)
 	return (mistake / total_pairs);
 }
 
-double	count_disorder(t_stack *a, t_bench *bench)
+double	count_disorder(t_stack *a)
 {
 	int		*arr;
 	double	result;
@@ -69,6 +71,5 @@ double	count_disorder(t_stack *a, t_bench *bench)
 		return (0.0);
 	result = count_mistake(arr, a->size);
 	free(arr);
-	bench->disorder = result;
 	return (result);
 }

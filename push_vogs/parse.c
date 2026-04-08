@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 06:20:07 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/02 15:21:02 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/04/08 14:24:08 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,14 @@ static int	parsing_arg(char *arg, t_stack *a)
 	}
 	free_split(args);
 	return (1);
+}
+int	is_flag(char *str)
+{
+	if (!str)
+		return (0);
+	if (str[0] == '-' && str[1] == '-')
+		return (1);
+	return (0);
 }
 
 int	parse_args(int argc, char **argv, t_stack *a)

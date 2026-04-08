@@ -6,7 +6,7 @@
 #    By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 11:36:19 by andriraz          #+#    #+#              #
-#    Updated: 2026/04/07 17:17:11 by nmariah          ###   ########.fr        #
+#    Updated: 2026/04/08 15:27:35 by nmariah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ HEADER = push_swap.h
 
 SRCS =	ft_atol.c \
 	push_swap_utils.c \
-	ft_split.c parse.c \
+	ft_split.c \
+	parse.c \
 	push.c \
 	rotate.c \
 	swap.c \
@@ -30,11 +31,11 @@ SRCS =	ft_atol.c \
 	check_flag.c \
 	push_swap_util_02.c \
 	bench.c \
-	check_flag.c
+	adaptive.c
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 OBJS = $(SRCS:.c=.o)
 

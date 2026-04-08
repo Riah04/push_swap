@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:56 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/06 14:45:45 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/08 14:55:26 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	sa(t_stack *a, t_bench *bench)
 	swap(a);
 	write(1, "sa\n", 3);
 	bench->sa++;
+	bench->total_ops++;
 }
 
 void	sb(t_stack *b, t_bench *bench)
@@ -46,6 +47,7 @@ void	sb(t_stack *b, t_bench *bench)
 	swap(b);
 	write(1, "sb\n", 3);
 	bench->sb++;
+	bench->total_ops++;
 }
 
 void	ss(t_stack *a, t_stack *b, t_bench *bench)
@@ -54,4 +56,5 @@ void	ss(t_stack *a, t_stack *b, t_bench *bench)
 	swap(b);
 	write(1, "ss\n", 3);
 	bench->ss++;
+	bench->total_ops++;
 }
