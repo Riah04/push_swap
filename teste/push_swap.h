@@ -6,18 +6,17 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:05 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/09 13:34:07 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/09 15:17:36 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "printf/ft_printf.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf.h"
+# include "printf/ft_printf.h"
 
 typedef struct s_list
 {
@@ -41,7 +40,6 @@ typedef struct s_flag
 	int				medium;
 	int				complex;
 	int				adaptive;
-	int 			flag;
 }					t_flags;
 
 typedef struct t_bench
@@ -88,17 +86,11 @@ int					get_max(t_stack *s);
 void				free_split(char **arr);
 void				ft_radix(t_stack *a, t_stack *b, t_bench *bench);
 int					ft_strcmp(char *s1, char *s2);
-int					is_flag(char *f);
+int					is_flag(char *str);
 t_flags				has_flags(char **argv, int argc, t_flags *f);
 void				ft_bench(t_bench *bench, int fd);
-
+void				ft_adaptive(t_stack *a, t_stack *b, t_bench *bench);
+void				push_swap(int argc, char **argv, t_stack *a, t_stack *b, t_bench *bench);
 void				ft_init_bench(t_bench *bench);
-int					ft_putnbr_u_fd(unsigned int i, int fd);
-int					ft_dig_count(unsigned int n);
-int					ft_putchar_fd(char c, int fd);
-void				ft_adaptive(t_stack *a, t_stack *b, char **argv, t_bench *bench);
-void				ft_three(t_stack *a, t_bench *bench);
-void				ft_five(t_stack *a, t_stack *b, t_bench *bench);
-t_flags				*get_flags(char **split, t_flags *f);
 
 #endif

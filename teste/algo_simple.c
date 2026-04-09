@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:31:31 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/09 14:09:30 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/09 15:21:01 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,11 @@ static int	get_min_pos(t_stack *s)
 	return (position);
 }
 
-static void	simple_sort_1(t_stack *a, t_stack *b, t_bench *bench)
+void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
-	int		pos;
-	int		i;
-	char	*str;
+	int	pos;
+	int	i;
 
-	str = "Simple / O(n^{2})";
 	while (count_disorder(a) > 0.0)
 	{
 		pos = get_min_pos(a);
@@ -76,16 +74,5 @@ static void	simple_sort_1(t_stack *a, t_stack *b, t_bench *bench)
 	}
 	while (b->size > 0)
 		pa(a, b, bench);
-	bench->strategy = str;
-}
-
-void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
-{
-	ft_printf(1, "\n%d\n", a->size);
-	if (a->size <= 3)
-		ft_three(a, bench);
-	else if (a->size == 5 || a->size == 4)
-		ft_five(a, b, bench);
-	else if (a->size > 5)
-		simple_sort_1(a, b, bench);
+	bench->strategy = "Simple / O(n^2)";
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_flag.c                                       :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 16:25:50 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/09 12:15:14 by nmariah          ###   ########.fr       */
+/*   Created: 2026/04/09 15:12:10 by nmariah           #+#    #+#             */
+/*   Updated: 2026/04/09 16:14:47 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,9 @@ static void		init_flag(t_flags *f)
 	f->medium = 0;
 	f->simple = 0;
 	f->complex = 0;
-	f->flag = 0;
 }
 
-t_flags	*get_flags(char **split, t_flags *f)
+static t_flags	*get_flags(char **split, t_flags *f)
 {
 	int		i;
 
@@ -72,8 +71,6 @@ t_flags	*get_flags(char **split, t_flags *f)
 			f->complex = 1;
 		if (ft_strcmp(split[i], "--bench") == 0)
 			f->bench = 1;
-		if (ft_strcmp(split[i], "--flag") == 0)
-			f->flag = 1;
 		i++;
 	}
 	return (f);
@@ -101,4 +98,25 @@ t_flags	has_flags(char **argv, int argc, t_flags *f)
 		k++;
 	}
 	return (*f);
+}
+
+void	push_swap(int argc, char **argv, t_stack *a, t_stack *b, t_bench *bench)
+{
+	t_flags	flags;
+
+	flags = has_flags(argv, argc, &flags);
+	ft_init_bench(bench);
+	bench->disorder = count_disorder(a);
+	if (flags.simple)
+		simple_sort(a, b, bench);
+	else if (flags.medium)
+		medium_sort(a, b, bench);
+	else if (flags.complex)
+		ft_radix(a, b, bench);
+	else if (flags.adaptive)
+		ft_adaptive(a, b, bench);
+	else
+		ft_adaptive(a, b, bench);
+	if (flags.bench)
+		ft_bench(bench, 2);
 }

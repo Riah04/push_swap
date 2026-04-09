@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bench->c                                            :+:      :+:    :+:   */
+/*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmariah <nmariah@student->42antananarivo    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/28 14:54:36 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/07 17:16:16 by nmariah          ###   ########->fr       */
+/*   Created: 2026/04/09 14:23:42 by nmariah           #+#    #+#             */
+/*   Updated: 2026/04/09 15:24:47 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,11 @@ void	ft_init_bench(t_bench *bench)
 	bench->strategy = NULL;
 	bench->pa = 0;
 	bench->pb = 0;
-	bench->pa = 0;
 	bench->ra = 0;
+	bench->rb = 0;
 	bench->sa = 0;
 	bench->sb = 0;
 	bench->ss = 0;
-	bench->pa = 0;
-	bench->pb = 0;
-	bench->ra = 0;
-	bench->rb = 0;
 	bench->rr = 0;
 	bench->rra = 0;
 	bench->rrb = 0;
@@ -38,7 +34,7 @@ void	ft_init_bench(t_bench *bench)
 
 void	ft_bench(t_bench *bench, int fd)
 {
-	ft_printf(fd, "[bench] disorder:");
+	ft_printf(fd, "[bench] disorder:	");
 	ft_2d(bench->disorder, fd);
 	ft_printf(fd, "\n[bench] strategy: %s\n", bench->strategy);
 	ft_printf(fd, "[bench] total_ops: %d\n", bench->total_ops);

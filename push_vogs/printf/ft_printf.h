@@ -27,5 +27,6 @@ int	ft_dig_count(unsigned int n);
 int	ft_check_format(char c, va_list arg, int fd);
 int	ft_putnbr(int i, int fd);
 int	ft_putnbr_u(unsigned int i, int fd);
+int	ft_2d(double d, int fd);
 
 #endif

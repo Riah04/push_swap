@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   pa(a, b, bench)rse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 06:20:07 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/09 12:30:52 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/03 00:11:50 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_flag(char *flag)
+static void	free_stack(t_stack *s)
 {
-	int	i;
+	t_list	*tmp;
+	t_list	*current;
 
-	i = 0;
-	if (ft_strcmp(flag, "--bench") == 0 || ft_strcmp(flag, "--simple") == 0
-		|| ft_strcmp(flag, "--adaptive") == 0 || ft_strcmp(flag, "--medium") == 0
-		|| ft_strcmp(flag, "--complex") == 0 || ft_strcmp(flag, "--flag") == 0)
+	if (!s || s->top == NULL)
+		return ;
+	current = s->top;
+	while (current->next != NULL)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+	free(s);
+}
+
+int	is_flag(char *str)
+{
+	if (ft_strcmp(str, "--simple") == 0)
+		return (1);
+	if (ft_strcmp(str, "--medium") == 0)
+		return (1);
+	if (ft_strcmp(str, "--complex") == 0)
+		return (1);
+	if (ft_strcmp(str, "--adaptive") == 0)
+		return (1);
+	if (ft_strcmp(str, "--bench") == 0)
 		return (1);
 	return (0);
 }
@@ -56,15 +76,15 @@ int	is_double(t_stack *stack, int val)
 	return (0);
 }
 
-int	check_arg(char *flag, t_stack *a)
+int	check_arg(char *str, t_stack *a)
 {
 	long	x;
 
-	if (is_flag(flag))
+	if (is_flag(str))
 		return (1);
-	if (!is_number(flag))
+	if (!is_number(str))
 		return (0);
-	x = ft_atol(flag);
+	x = ft_atol(str);
 	if (x > INT_MAX || x < INT_MIN)
 		return (0);
 	if (is_double(a, (int)x))
@@ -97,13 +117,13 @@ static int	parsing_arg(char *arg, t_stack *a)
 
 int	parse_args(int argc, char **argv, t_stack *a)
 {
-	int		i;
+	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
 		if (!parsing_arg(argv[i], a))
-			return (0);
+			return (free_stack(a), 0);
 		i++;
 	}
 	return (1);

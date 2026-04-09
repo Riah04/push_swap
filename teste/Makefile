@@ -6,18 +6,15 @@
 #    By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 11:36:19 by andriraz          #+#    #+#              #
-#    Updated: 2026/04/09 14:10:11 by nmariah          ###   ########.fr        #
+#    Updated: 2026/04/09 15:23:36 by nmariah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME  = push_swap
-
 HEADER = push_swap.h
 
-PRINTF_DIR = ./printf
-PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
-
-INCLUDES	= -I. -I$(PRINTF_DIR)
+PRINTF_DIR = printf
+PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 SRCS =	ft_atol.c \
 	push_swap_utils.c \
@@ -31,30 +28,27 @@ SRCS =	ft_atol.c \
 	count_disorder.c \
 	algo_medium.c \
 	get_max.c \
-	algo_complex.c \
+	algo_complexe.c \
 	main.c \
 	check_flag.c \
 	push_swap_util_02.c \
-	bench.c \
 	adaptive.c \
-	ft_less.c
+	push_swap.c \
+	bench.c
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -I. -I$(PRINTF_DIR)
 
 OBJS = $(SRCS:.c=.o)
 
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 all: $(NAME)
 
-$(NAME): $(OBJS) $(PRINTF_LIB)
-	$(CC) $(CFLAGS) $(OBJS) -L$(PRINTF_DIR) -lftprintf -o $(NAME)
-
-$(PRINTF_LIB):
+$(PRINTF):
 	$(MAKE) -C $(PRINTF_DIR)
+
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o $(NAME) 
 
 clean:
 	rm -f $(OBJS)
@@ -62,7 +56,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(PRINTF_DIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) clean
 
 re: fclean all
 
