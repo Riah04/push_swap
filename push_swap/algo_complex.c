@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
+/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 14:51:24 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/10 13:55:03 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/11 15:27:35 by andriraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,12 @@ static void	ft_radix_1(t_stack *a, t_stack *b, t_bench *bench)
 
 void	ft_radix(t_stack *a, t_stack *b, t_bench *bench)
 {
-	if (a->size <= 5)
-		ft_small(a, b, bench);
-	else
-		ft_radix_1(a, b, bench);
+	while (count_disorder(a) > 0.0)
+	{
+		if (a->size <= 5)
+			ft_small(a, b, bench);
+		else
+			ft_radix_1(a, b, bench);
+	}
 	bench->strategy = "Complex / O(n log n)";
 }

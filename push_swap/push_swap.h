@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:37:05 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/10 16:16:56 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/11 16:47:46 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void				init_flag(t_flags *f);
 void				ft_small(t_stack *a, t_stack *b, t_bench *bench);
 void				assign_ranks(t_stack *s);
 int					ft_check_ascii_null(char *str);
+void				free_stack(t_stack *s);
 
 #endif

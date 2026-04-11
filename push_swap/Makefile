@@ -6,7 +6,7 @@
 #    By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 11:36:19 by andriraz          #+#    #+#              #
-#    Updated: 2026/04/10 14:02:14 by nmariah          ###   ########.fr        #
+#    Updated: 2026/04/11 16:49:51 by nmariah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,10 @@ SRCS =	ft_atol.c \
 	push_swap.c \
 	bench.c \
 	ft_three_and_five.c \
-	algo_utils.c
+	algo_utils.c \
+	checker.c \
+	get_next_line_bonus.c \
+	get_next_line_utils_bonus.c
 
 CC = cc
 
