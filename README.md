@@ -7,7 +7,7 @@
 Push Swap is an advanced sorting algorithm project that sorts a stack of integers using two stacks (A and B) with a limited set of operations. The program intelligently selects the most efficient sorting algorithm based on the disorder level (entropy) of the input data.
 
 This project implements a comprehensive sorting solution that handles various scenarios with optimized strategies:
-- **Small datasets**: Bubble sort variant for minimal operation count
+- **Small datasets**: Selection sort variant for minimal operation count
 - **Medium datasets**: Chunk-based sorting using square root partitioning
 - **Large datasets**: Radix sort (binary representation)
 - **Adaptive mode**: Automatically selects the optimal algorithm based on data disorder
@@ -74,7 +74,6 @@ The following operations are used to manipulate the stacks:
 ### Useful site for the sorting algorithm
 
 https://www.geeksforgeeks.org/dsa/radix-sort/
-https://www.geeksforgeeks.org/dsa/bubble-sort-algorithm/
 https://www.geeksforgeeks.org/dsa/sorting-algorithms/
 https://satyadeepmaheshwari.medium.com/sorting-large-datasets-with-limited-memory-the-chunked-merge-sort-approach-318275275c81
 
@@ -90,9 +89,8 @@ This project leveraged AI assistance (GitHub Copilot) in multiple ways:
 
 4. **Adaptive Logic**: AI helped develop the adaptive algorithm selection mechanism that evaluates disorder and chooses the optimal strategy.
 
-5. **Utility Functions**: AI contributed to the development of helper functions like `ft_atol`, `ft_split`, `ft_sqrt`, and stack manipulation utilities.
 
-6. **Printf Implementation**: The integrated `printf` module was developed with AI assistance for performance tracking and benchmarking.
+5. **Printf Implementation**: The integrated `printf` module was developed with AI assistance for performance tracking and benchmarking.
 
 ### Project Files
 
@@ -147,7 +145,7 @@ The adaptive engine (`adaptive.c`) makes decisions based on disorder thresholds:
 
 ### Algorithm Details
 
-#### Simple Sort (Bubble Variant)
+#### Simple Sort (Selection Variant)
 - Finds the minimum element in the stack
 - Rotates it to the top
 - Repeats for each position

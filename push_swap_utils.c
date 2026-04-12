@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 20:04:06 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/09 20:04:08 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/04/12 10:32:59 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_stack(t_stack *s)
+{
+	t_list	*tmp;
+	t_list	*current;
+
+	if (!s)
+		return ;
+	current = s->top;
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+	free(s);
+}
 
 t_list	*ft_lstnew(int val)
 {

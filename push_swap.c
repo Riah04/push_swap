@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
+/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 15:12:10 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/10 11:07:52 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/11 19:55:31 by andriraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,15 @@ static t_flags	*get_flags(char **split, t_flags *f)
 	while (split[i] != NULL)
 	{
 		if (ft_strcmp(split[i], "--adaptive") == 0)
-			f->adaptive = 1;
+			f->adaptive += 1;
 		if (ft_strcmp(split[i], "--simple") == 0)
-			f->simple = 1;
+			f->simple += 1;
 		if (ft_strcmp(split[i], "--medium") == 0)
-			f->medium = 1;
+			f->medium += 1;
 		if (ft_strcmp(split[i], "--complex") == 0)
-			f->complex = 1;
+			f->complex += 1;
 		if (ft_strcmp(split[i], "--bench") == 0)
-			f->bench = 1;
+			f->bench += 1;
 		i++;
 	}
 	return (f);

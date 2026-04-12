@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 10:42:38 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/10 14:15:30 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/12 10:24:14 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void	ft_two(t_stack *a, t_bench *bench)
 
 static void	ft_three(t_stack *a, t_bench *bench)
 {
-	int		i;
-	int		b;
+	int	i;
+	int	b;
 
 	if (!a)
 		return ;
@@ -81,13 +81,18 @@ static void	ft_five(t_stack *a, t_stack *b, t_bench *bench)
 	tmp = a->top;
 	while (i <= 1)
 	{
-		while (get_min_pos(a, i) != 0)
-			ra(a, bench);
-		i++;
-		pb(a, b, bench);
+		if (get_min_pos(a, i) == 0)
+		{
+			pb(a, b, bench);
+			i++;
+		}
+		ra(a, bench);
+		if (a->size == 3)
+		{
+			ft_three(a, bench);
+			break ;
+		}
 	}
-	if (a->size == 3)
-		ft_three(a, bench);
 	while (b->size != 0)
 		pa(a, b, bench);
 	return ;

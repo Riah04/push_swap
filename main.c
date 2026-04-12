@@ -6,29 +6,12 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 05:20:01 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/11 16:48:07 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/12 10:32:38 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack *s)
-{
-	t_list	*tmp;
-	t_list	*current;
-
-	if (!s)
-		return ;
-	current = s->top;
-	while (current)
-	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
-	}
-	free(s);
-}
-/*
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -54,4 +37,3 @@ int	main(int argc, char **argv)
 	free_stack(b);
 	return (0);
 }
-*/

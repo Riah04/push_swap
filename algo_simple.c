@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andriraz <andriraz@student.42antananari    +#+  +:+       +#+        */
+/*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 11:31:31 by andriraz          #+#    #+#             */
-/*   Updated: 2026/04/11 16:01:25 by andriraz         ###   ########.fr       */
+/*   Updated: 2026/04/12 10:18:32 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
 	{
 		if (a->size <= 5)
 			ft_small(a, b, bench);
-		else
+		else if (a->size > 5)
 			simple_sort_1(a, b, bench);
 	}
 	bench->strategy = "Simple / O(n²)";
