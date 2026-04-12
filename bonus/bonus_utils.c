@@ -6,7 +6,7 @@
 /*   By: nmariah <nmariah@student.42antananarivo    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 08:11:29 by nmariah           #+#    #+#             */
-/*   Updated: 2026/04/12 15:34:38 by nmariah          ###   ########.fr       */
+/*   Updated: 2026/04/12 15:57:02 by nmariah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	rotate(t_stack *s)
 {
 	t_list	*first;
 	
-	if (s->size < 2)
+	if (s->size < 1)
 		return ;
 	first = s->top;
 	s->top = first->next;
@@ -66,7 +66,7 @@ static void	rotate(t_stack *s)
 
 void	ra_b(t_stack *a)
 {
-	if (a->size < 2)
+	if (a->size < 1)
 		return ;
 	else
 		rotate(a);
@@ -74,7 +74,7 @@ void	ra_b(t_stack *a)
 
 void	rb_b(t_stack *b)
 {
-	if ((b->size < 2))
+	if ((b->size < 1))
 		return ;
 	else
 		rotate(b);
@@ -82,7 +82,7 @@ void	rb_b(t_stack *b)
 
 void	rr_b(t_stack *a, t_stack *b)
 {
-	if ((b->size < 2) && (a->size < 2))
+	if ((b->size < 1) && (a->size < 1))
 		return ;
 	else
 	{
@@ -96,7 +96,7 @@ static void	swap(t_stack *s)
 	t_list	*first;
 	t_list	*second;
 
-	if (s->size < 2)
+	if (s->size < 1)
 		return ;
 	first = s->top;
 	second = s->top->next;
@@ -113,7 +113,7 @@ static void	swap(t_stack *s)
 
 void	sa_b(t_stack *a)
 {
-	if (a->size < 2)
+	if (a->size < 1)
 		return ;
 	else
 		swap(a);
@@ -121,7 +121,7 @@ void	sa_b(t_stack *a)
 
 void	sb_b(t_stack *b)
 {
-	if (b->size < 2)
+	if (b->size < 1)
 		return ;
 	else
 		swap(b);
@@ -129,7 +129,7 @@ void	sb_b(t_stack *b)
 
 void	ss_b(t_stack *a, t_stack *b)
 {
-	if (a->size < 2 && b->size < 2)
+	if (a->size < 1 && b->size < 1)
 		return ;
 	else
 	{
@@ -164,7 +164,7 @@ void	pb_b(t_stack *a, t_stack *b)
 {
 	t_list	*node;
 
-	if (a->size > 0)
+	if (a->size == 0)
 		return ;
 	node = a->top;
 	a->top = node->next;
